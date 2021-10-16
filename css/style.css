@@ -372,7 +372,10 @@ a.btn:after {
     width: 100%;
     overflow: hidden;
     height: 335px;
+    -webkit-perspective: 1000px;
+    -moz-perspective: 1000px;
     perspective: 1000px;
+    transform-style: preserve-3d;
 }
 .books_container {
     width: 2600px;
@@ -383,13 +386,14 @@ a.btn:after {
     right: auto;
     margin-left: -1300px;
     display: none;
+    transform-style: preserve-3d;
 }
 .book {
     width: 165px;
     height: 230px;
     display: inline-block;
-    margin-right: 100px;
-    -moz-perspective: 1000px
+    margin-right: 90px;
+    transform-style: preserve-3d;
 }
 .book:first-of-type {
     margin-right: 0
@@ -406,6 +410,7 @@ a.btn:after {
     box-shadow: -1px -1px 0 rgba(0, 0, 0, .25) inset;
     transform: rotateX(70deg);
     transform-origin: bottom;
+    pointer-events: none;
 }
 .book a:after,
 .book a:before {
@@ -413,12 +418,16 @@ a.btn:after {
     content: '';
     position: absolute;
     width: 100%;
+    transform-style: preserve-3d;
+    pointer-events: none;
 }
-.book a:hover,
-.book.active a,
-.book:hover a {
+/*.book a:hover,*/
+.book.active a
+/*.book:hover a */
+{
     transform: rotateX(0);
     z-index: 999;
+    transform-style: preserve-3d;
 }
 .book a:after {
     bottom: 0;
@@ -428,26 +437,46 @@ a.btn:after {
     background-position: bottom;
     transform: rotateX(90deg);
     transform-origin: bottom;
-    box-shadow: -2px -3px 2px rgba(0, 0, 0, .25) inset, 0 -1px 0 #eee inset, 0 -3px 0 #bbb inset, 0 -5px 0 #eee inset, 0 -7px 0 #bbb inset, 0 -9px 0 #eee inset, 0 -11px 0 #bbb inset, 0 -13px 0 #eee inset, 0 -15px 0 #bbb inset, 0 -17px 0 #eee inset, 0 -19px 0 #bbb inset, 0 -21px 0 #eee inset, 0 -23px 0 #bbb inset, 0 -25px 0 #eee inset
+    box-shadow:
+        -2px -2px 4px rgba(0, 0, 0, .3) inset,
+        0 -1px 0 #eee inset,
+        0 -2px 0 #bbb inset,
+        0 -3px 0 #eee inset,
+        0 -4px 0 #bbb inset,
+        0 -5px 0 #eee inset,
+        0 -6px 0 #bbb inset,
+        0 -7px 0 #eee inset,
+        0 -8px 0 #bbb inset,
+        0 -9px 0 #eee inset,
+        0 -10px 0 #bbb inset,
+        0 -11px 0 #eee inset,
+        0 -12px 0 #bbb inset,
+        0 -13px 0 #eee inset,
+        0 -14px 0 #bbb inset,
+        0 -15px 0 #eee inset,
+        0 -16px 0 #bbb inset,
+        0 -17px 0 #eee inset
 }
 .book a:before {
     top: 0;
     height: 100%;
-    background: rgba(0, 0, 0, .3);
+    background: rgba(0, 0, 0, .2);
     transition: all .5s;
     opacity: 1;
-    box-shadow: 0 0 30px 25px rgba(0, 0, 0, .3);
+    box-shadow: 0 0 30px 25px rgba(0, 0, 0, .2);
     transform: rotateX(0) translateZ(-55px) scale(.85);
     transform-origin: bottom;
     z-index: 0;
 }
-.book a:hover:before {
+/*.book a:hover:before {*/
+.book.active a:before {
     opacity: .2;
     height: 50%;
     top: 40%;
     transform: rotateX(85deg) translateZ(-75px) scale(.75);
     transform-origin: bottom;
     box-shadow: 0 0 70px 30px rgba(0, 0, 0, .3);
+    transform-style: preserve-3d;
 }
 .book a span.paper,
 .book a span.side {
@@ -462,7 +491,26 @@ a.btn:after {
     left: 0;
     transform: rotateY(90deg);
     transform-origin: left;
-    box-shadow: -1px 0 0 #eee inset, -3px 0 0 #bbb inset, -5px 0 0 #eee inset, -7px 0 0 #bbb inset, -9px 0 0 #eee inset, -11px 0 0 #bbb inset, -13px 0 0 #eee inset, -15px 0 0 #bbb inset, -17px 0 0 #eee inset, -19px 0 0 #bbb inset, -21px 0 0 #eee inset, -23px 0 0 #bbb inset, -25px 0 0 #eee inset
+    box-shadow:
+            -1px 0 0 #eee inset,
+            -2px 0 0 #aaa inset,
+            -3px 0 0 #eee inset,
+            -4px 0 0 #aaa inset,
+            -5px 0 0 #eee inset,
+            -6px 0 0 #aaa inset,
+            -7px 0 0 #eee inset,
+            -8px 0 0 #aaa inset,
+            -9px 0 0 #eee inset,
+            -10px 0 0 #aaa inset,
+            -11px 0 0 #eee inset,
+            -12px 0 0 #aaa inset,
+            -13px 0 0 #eee inset,
+            -14px 0 0 #aaa inset,
+            -15px 0 0 #eee inset,
+            -16px 0 0 #aaa inset,
+            -17px 0 0 #eee inset,
+            -18px 0 0 #aaa inset,
+            -19px 0 0 #eee inset
 }
 .book a span.side {
     right: 0;
@@ -475,7 +523,7 @@ a.btn:after {
 .book_caption {
     position: absolute;
     text-align: center;
-    bottom: 0;
+    bottom: -100px;
     width: 170px;
     pointer-events: none;
     opacity: 0;
@@ -1172,7 +1220,7 @@ figcaption p {
     -moz-transform: rotate(-25deg) skew(10deg);
     -webkit-transform: rotate(-25deg) skew(10deg);
     -o-transform: rotate(-25deg) skew(10deg);
-    -ms-transform: rotate(-25deg) skew(10deg));
+    -ms-transform: rotate(-25deg) skew(10deg);
     transform: rotate(-25deg) skew(10deg);
     -webkit-transform-style: preserve-3d;
     -moz-transform-style: preserve-3d;
@@ -1552,13 +1600,13 @@ and (-webkit-min-device-pixel-ratio: 1) {
         -webkit-transform:rotateX(90deg) rotateZ(90deg) translateZ(-91px) translateX(-2px) translateY(-118px);
     }
     .hardcover_back li:first-child:after, .hardcover_back li:first-child:before {
-        width: 0px;
-        height: 0px;
+        width: 0;
+        height: 0;
     }
     .hardcover_back li:last-child:before {
         box-shadow: none;
         -webkit-transform:rotateX(90deg) rotateZ(108deg) translateZ(-118px) translateX(9px) translateY(-65px);
-        -moz-transform:rotateX(90deg) rotateZ(108deg) translateZ(-118px) translateX(9px) translateY(-65px));
+        -moz-transform:rotateX(90deg) rotateZ(108deg) translateZ(-118px) translateX(9px) translateY(-65px);
         transform:rotateX(90deg) rotateZ(108deg) translateZ(-118px) translateX(9px) translateY(-65px);
     }
 
